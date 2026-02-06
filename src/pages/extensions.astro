@@ -1,35 +1,16 @@
 ---
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro"
+import ModEntry from "../components/ModEntry.astro"
 import extensions from "../assets/extensions"
 import links from "../assets/links"
-import { normalizeExtensions, toExtensionViewModel } from "../utils/extensions"
+import { normalizeMods, toModViewModel } from "../utils/mods"
 
-const extensionItems = normalizeExtensions(extensions).map((ext) =>
-  toExtensionViewModel(ext, links),
-)
-const headings = extensionItems.map((ext) => ({
+const modItems = normalizeMods(extensions).map((mod) => toModViewModel(mod, links))
+const headings = modItems.map((mod) => ({
   depth: 2,
-  slug: ext.slug,
-  text: ext.name,
+  slug: mod.slug,
+  text: mod.name,
 }))
-
-const escapeHtml = (value: string) =>
-  value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;")
-
-const toBadgeMarkdown = (alt: string, image: string | null, href: string | null) =>
-  image && href ? `[![${alt}](${image})](${href})` : null
-
-const renderBadgeMarkdown = (markdown: string) => {
-  const matched = markdown.match(/^\[!\[(.*)\]\((.*)\)\]\((.*)\)$/)
-  if (!matched) return ""
-  const [, alt, image, href] = matched
-  return `<a href="${escapeHtml(href)}" style="display:inline-block;margin:0 8px 8px 0;"><img src="${escapeHtml(image)}" alt="${escapeHtml(alt)}" style="display:block;" /></a>`
-}
 ---
 
 <StarlightPage
@@ -41,76 +22,6 @@ const renderBadgeMarkdown = (markdown: string) => {
   headings={headings}
 >
   <div>
-    {
-      extensionItems.length ? (
-        extensionItems.map((extension) => (
-          <section>
-            <h2 id={extension.slug}>{extension.name}</h2>
-            {(() => {
-              const badges = [
-                toBadgeMarkdown(
-                  "Modrinth downloads",
-                  extension.modrinthBadge,
-                  extension.modrinthUrl,
-                ),
-                toBadgeMarkdown(
-                  "CurseForge downloads",
-                  extension.curseforgeBadge,
-                  extension.curseforgeUrl,
-                ),
-                toBadgeMarkdown(
-                  "GitHub downloads",
-                  extension.githubDownloadsBadge,
-                  extension.sourceUrl,
-                ),
-                toBadgeMarkdown("GitHub stars", extension.githubStarsBadge, extension.sourceUrl),
-              ].filter((value): value is string => Boolean(value))
-
-              return badges.length ? (
-                <p style="margin: 8px 0 0 0;">
-                  {badges.map((badge) => (
-                    <Fragment set:html={`${renderBadgeMarkdown(badge)} `} />
-                  ))}
-                </p>
-              ) : null
-            })()}
-            <ul style="margin-top: 0; margin-bottom: 0.75rem;">
-              {extension.website && (
-                <li>
-                  <a href={extension.website}>Website</a>
-                </li>
-              )}
-              {extension.docsUrl && (
-                <li>
-                  <a href={extension.docsUrl}>{extension.docsLabel ?? "Docs"}</a>
-                </li>
-              )}
-              {extension.modrinthUrl && (
-                <li>
-                  <a href={extension.modrinthUrl}>Modrinth</a>
-                </li>
-              )}
-              {extension.curseforgeUrl && (
-                <li>
-                  <a href={extension.curseforgeUrl}>CurseForge</a>
-                </li>
-              )}
-              {extension.mcmodUrl && (
-                <li>
-                  <a href={extension.mcmodUrl}>MCMOD</a>
-                </li>
-              )}
-              {extension.sourceUrl && (
-                <li>
-                  <a href={extension.sourceUrl}>Github</a>
-                </li>
-              )}
-            </ul>
-          </section>
-        ))
-      ) : (
-        <p>No extensions listed yet.</p>
-      )
-    }
+    {modItems.length ? modItems.map((mod) => <ModEntry mod={mod} />) : <p>No mods listed yet.</p>}
   </div>
 </StarlightPage>

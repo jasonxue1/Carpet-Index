@@ -1,4 +1,4 @@
-import type { ExtensionInput } from "../utils/extensions"
+import type { ModInput } from "../utils/mods"
 
 const extensions = [
   {
@@ -91,6 +91,6 @@ const extensions = [
     mcmod: "5664",
     github: "TISUnion/Carpet-TIS-Addition",
   },
-] satisfies ExtensionInput[]
+] satisfies ModInput[]
 
 export default extensions

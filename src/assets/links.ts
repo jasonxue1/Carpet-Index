@@ -1,4 +1,4 @@
-import type { LinksConfig } from "../utils/extensions"
+import type { LinksConfig } from "../utils/mods"
 
 const links = {
   curseforge: {

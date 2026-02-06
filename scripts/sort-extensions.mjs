@@ -5,8 +5,7 @@ import prettier from "prettier"
 
 const cliArgs = process.argv.slice(2)
 const checkOnly = cliArgs.includes("--check")
-const targetFile = cliArgs.find((arg) => !arg.startsWith("--")) ?? "src/assets/extensions.ts"
-const absPath = path.resolve(process.cwd(), targetFile)
+const targetFiles = ["src/assets/extensions.ts", "src/assets/official.ts"]
 
 const ENTRY_ORDER = ["name", "rules", "website", "modrinth", "curseforge", "mcmod", "github"]
 const CURSEFORGE_ORDER = ["slug", "id"]
@@ -108,17 +107,25 @@ const printValue = (value, indent = 0) => {
   return `{\n${lines.join(",\n")}\n${pad}}`
 }
 
-const run = async () => {
+const runOne = async (targetFile) => {
+  const absPath = path.resolve(process.cwd(), targetFile)
   const source = await fs.readFile(absPath, "utf8")
-  const anchor = "const extensions ="
-  const start = source.indexOf(anchor)
-  if (start < 0) throw new Error(`Could not find "${anchor}" in ${targetFile}`)
-  const open = source.indexOf("[", start)
-  if (open < 0) throw new Error("Could not find opening bracket for extensions array.")
-  const close = scanRange(source, open, "[", "]")
+  const declMatch = source.match(/const\s+\w+\s*=/)
+  if (!declMatch || declMatch.index == null) {
+    throw new Error(`Could not find constant assignment in ${targetFile}`)
+  }
+  const start = declMatch.index
+  const eqIndex = source.indexOf("=", start)
+  const afterEq = source.slice(eqIndex + 1)
+  const firstStruct = afterEq.search(/[[{]/)
+  if (firstStruct < 0) throw new Error(`Could not find object/array literal in ${targetFile}`)
+  const open = eqIndex + 1 + firstStruct
+  const openChar = source[open]
+  const closeChar = openChar === "[" ? "]" : "}"
+  const close = scanRange(source, open, openChar, closeChar)
 
-  const rawArray = source.slice(open, close + 1)
-  const parsed = Function(`"use strict"; return (${rawArray});`)()
+  const rawValue = source.slice(open, close + 1)
+  const parsed = Function(`"use strict"; return (${rawValue});`)()
   const sorted = sortAny(parsed)
   const printed = printValue(sorted, 0)
 
@@ -133,6 +140,12 @@ const run = async () => {
     return
   }
   await fs.writeFile(absPath, next)
+}
+
+const run = async () => {
+  for (const file of targetFiles) {
+    await runOne(file)
+  }
 }
 
 run().catch((err) => {

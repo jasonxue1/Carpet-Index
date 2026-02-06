@@ -15,8 +15,12 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Index",
+          label: "Intro",
           link: "/",
+        },
+        {
+          label: "Official Carpet",
+          link: "/official/",
         },
         {
           label: "Extensions",

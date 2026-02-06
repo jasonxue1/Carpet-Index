@@ -1,0 +1,93 @@
+---
+import type { ModViewModel } from "../utils/mods"
+
+interface Props {
+  mod: ModViewModel
+}
+
+const { mod } = Astro.props
+
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+
+const toBadgeMarkdown = (alt: string, image: string | null, href: string | null) =>
+  image && href ? `[![${alt}](${image})](${href})` : null
+
+const renderBadgeMarkdown = (markdown: string) => {
+  const matched = markdown.match(/^\[!\[(.*)\]\((.*)\)\]\((.*)\)$/)
+  if (!matched) return ""
+  const [, alt, image, href] = matched
+  return `<a href="${escapeHtml(href)}" style="display:inline-block;margin:0 8px 8px 0;"><img src="${escapeHtml(image)}" alt="${escapeHtml(alt)}" style="display:block;" /></a>`
+}
+---
+
+<section>
+  <h2 id={mod.slug}>{mod.name}</h2>
+  {
+    (() => {
+      const badges = [
+        toBadgeMarkdown("Modrinth downloads", mod.modrinthBadge, mod.modrinthUrl),
+        toBadgeMarkdown("CurseForge downloads", mod.curseforgeBadge, mod.curseforgeUrl),
+        toBadgeMarkdown("GitHub downloads", mod.githubDownloadsBadge, mod.sourceUrl),
+        toBadgeMarkdown("GitHub stars", mod.githubStarsBadge, mod.sourceUrl),
+      ].filter((value): value is string => Boolean(value))
+
+      return badges.length ? (
+        <p style="margin: 8px 0 0 0;">
+          {badges.map((badge) => (
+            <Fragment set:html={`${renderBadgeMarkdown(badge)} `} />
+          ))}
+        </p>
+      ) : null
+    })()
+  }
+  <ul style="margin-top: 0; margin-bottom: 0.75rem;">
+    {
+      mod.website && (
+        <li>
+          <a href={mod.website}>Website</a>
+        </li>
+      )
+    }
+    {
+      mod.docsUrl && (
+        <li>
+          <a href={mod.docsUrl}>{mod.docsLabel ?? "Docs"}</a>
+        </li>
+      )
+    }
+    {
+      mod.modrinthUrl && (
+        <li>
+          <a href={mod.modrinthUrl}>Modrinth</a>
+        </li>
+      )
+    }
+    {
+      mod.curseforgeUrl && (
+        <li>
+          <a href={mod.curseforgeUrl}>CurseForge</a>
+        </li>
+      )
+    }
+    {
+      mod.mcmodUrl && (
+        <li>
+          <a href={mod.mcmodUrl}>MC百科</a>
+        </li>
+      )
+    }
+    {
+      mod.sourceUrl && (
+        <li>
+          <a href={mod.sourceUrl}>Github</a>
+        </li>
+      )
+    }
+  </ul>
+</section>

@@ -1,0 +1,19 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro"
+import ModEntry from "../components/ModEntry.astro"
+import links from "../assets/links"
+import official from "../assets/official"
+import { toModViewModel } from "../utils/mods"
+
+const officialItem = toModViewModel(official, links)
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Official Carpet",
+    description: "Official Carpet mod index with links to docs, downloads, and source",
+    tableOfContents: false,
+  }}
+>
+  <ModEntry mod={officialItem} />
+</StarlightPage>

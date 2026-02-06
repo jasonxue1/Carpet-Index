@@ -1,6 +1,6 @@
 export type LinkValue = string | { slug?: string; id?: string } | null | undefined
 
-export type ExtensionInput = {
+export type ModInput = {
   name: string
   website?: string
   docs?: string
@@ -11,7 +11,7 @@ export type ExtensionInput = {
   github?: string
 }
 
-export type ExtensionViewModel = {
+export type ModViewModel = {
   name: string
   slug: string
   website?: string
@@ -59,21 +59,18 @@ export const slugify = (value: string) =>
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
 
-export const toExtensionViewModel = (
-  ext: ExtensionInput,
-  links: LinksConfig,
-): ExtensionViewModel => {
-  const githubValue = ext.github
-  const docsUrl = ext.docs ?? ext.rules
-  const docsLabel = ext.docs ? "Docs" : ext.rules ? "Rules" : undefined
-  const modrinth = normalizeLink(ext.modrinth)
-  const curseforge = normalizeLink(ext.curseforge)
-  const mcmod = normalizeLink(ext.mcmod)
+export const toModViewModel = (mod: ModInput, links: LinksConfig): ModViewModel => {
+  const githubValue = mod.github
+  const docsUrl = mod.docs ?? mod.rules
+  const docsLabel = mod.docs ? "Docs" : mod.rules ? "Rules" : undefined
+  const modrinth = normalizeLink(mod.modrinth)
+  const curseforge = normalizeLink(mod.curseforge)
+  const mcmod = normalizeLink(mod.mcmod)
 
   return {
-    name: ext.name,
-    slug: slugify(ext.name),
-    website: ext.website,
+    name: mod.name,
+    slug: slugify(mod.name),
+    website: mod.website,
     docsUrl,
     docsLabel,
     modrinthUrl: modrinth?.value ? links.modrinth.website(modrinth.value) : null,
@@ -87,4 +84,4 @@ export const toExtensionViewModel = (
   }
 }
 
-export const normalizeExtensions = (input: ExtensionInput[]): ExtensionInput[] => input
+export const normalizeMods = (input: ModInput[]): ModInput[] => input
