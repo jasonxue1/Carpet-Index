@@ -20,11 +20,11 @@ export default defineConfig({
         },
         {
           label: "Official Carpet",
-          link: "/official/",
+          link: "/official",
         },
         {
           label: "Extensions",
-          link: "/extensions/",
+          link: "/extensions",
         },
       ],
       components: {
