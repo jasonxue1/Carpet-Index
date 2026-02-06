@@ -1,5 +1,5 @@
 import type { ModInput } from "../utils/mods"
-
+// blob/HEAD/src/main/resources/fabric.mod.json
 const extensions = [
   {
     name: "Carpet Addons Not Founded",
@@ -38,7 +38,9 @@ const extensions = [
   },
   {
     name: "Carpet Extra Extras",
+    rules: "https://github.com/Thedustbustr/Carpet-Extra-Extras#carpet-extra-extras-rules",
     modrinth: "2O3YTVOd",
+    github: "Carpet-Extra-Extras",
   },
   {
     name: "Carpet LMS Addition",
@@ -54,7 +56,9 @@ const extensions = [
   },
   {
     name: "Carpet MCT Addition",
+    rules: "https://github.com/MCTown/Carpet-MCT-Addition#rules",
     modrinth: "pY40IXqI",
+    github: "MCTown/Carpet-MCT-Addition",
   },
   {
     name: "Carpet Org Addition",
@@ -68,12 +72,19 @@ const extensions = [
     github: "Melationin/ROF-Carpet-Addition",
   },
   {
-    name: "Carpet Sky Additions Reborn",
+    name: "Carpet Sky Additions Revised",
     modrinth: "Hi4jcyg4",
+    github: "TreeOfSelf/CarpetSkyAdditions-Reborn",
   },
   {
     name: "Carpet Takeneko Addition",
+    rules: "https://github.com/ZhuRuoLing/takeneko-carpet-addition#rules",
     modrinth: "F04n6rCD",
+    curseforge: {
+      slug: "carpet-takeneko-addition",
+      id: "1171753",
+    },
+    github: "ZhuRuoLing/takeneko-carpet-addition",
   },
   {
     name: "Carpet TIS Addition",
