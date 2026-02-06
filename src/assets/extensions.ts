@@ -41,10 +41,6 @@ const extensions = [
     modrinth: "2O3YTVOd",
   },
   {
-    name: "Carpet IGNY Addition",
-    modrinth: "7PCm6yD1",
-  },
-  {
     name: "Carpet LMS Addition",
     rules: "https://carpet.lms.nm.cn/docs/rules",
     website: "https://carpet.lms.nm.cn",
@@ -90,6 +86,13 @@ const extensions = [
     },
     mcmod: "5664",
     github: "TISUnion/Carpet-TIS-Addition",
+  },
+  {
+    name: "Carpet_IGNY_Addition",
+    rules: "https://github.com/liuyuexiaoyu1/Carpet-Igny-Addition/blob/HEAD/docs/rules.md",
+    modrinth: "7PCm6yD1",
+    mcmod: "23368",
+    github: "liuyuexiaoyu1/Carpet-Igny-Addition",
   },
 ] satisfies ModInput[]
 
