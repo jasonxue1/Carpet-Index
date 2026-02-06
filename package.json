@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/starlight": "^0.37.6",
+    "astro": "^5.6.1",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@eslint/markdown": "^7.5.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-jsonc": "^2.21.0",
+    "eslint-plugin-yml": "^3.0.0",
+    "globals": "^17.3.0",
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  },
+  "license": "GPL-3.0-or-later",
+  "name": "carpet-website",
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "depcheck": "depcheck",
+    "lint:apply": "eslint . --fix",
+    "prettier:apply": "prettier . --write",
+    "sort:apply": "node scripts/sort-extensions.mjs",
+    "lint:check": "eslint . --max-warnings 0",
+    "prettier:check": "prettier . --check",
+    "sort:check": "node scripts/sort-extensions.mjs --check",
+    "apply": "pnpm sort:apply && pnpm prettier:apply && pnpm lint:apply",
+    "check": "pnpm sort:check && pnpm prettier:check && pnpm lint:check"
+  },
+  "type": "module",
+  "version": "0.0.1"
+}
