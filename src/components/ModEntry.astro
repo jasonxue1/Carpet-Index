@@ -1,4 +1,5 @@
 ---
+import AnchorHeading from "@astrojs/starlight/components/AnchorHeading.astro"
 import type { ModViewModel } from "../utils/mods"
 
 interface Props {
@@ -27,7 +28,7 @@ const renderBadgeMarkdown = (markdown: string) => {
 ---
 
 <section>
-  <h2 id={mod.slug}>{mod.name}</h2>
+  <AnchorHeading level={2} id={mod.slug}>{mod.name}</AnchorHeading>
   {
     (() => {
       const badges = [
