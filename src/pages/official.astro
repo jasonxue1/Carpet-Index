@@ -6,14 +6,21 @@ import official from "../assets/official"
 import { toModViewModel } from "../utils/mods"
 
 const officialItem = toModViewModel(official, links)
+const headings = [
+  {
+    depth: 2,
+    slug: officialItem.slug,
+    text: officialItem.name,
+  },
+]
 ---
 
 <StarlightPage
   frontmatter={{
     title: "Official Carpet",
     description: "Official Carpet mod index with links to docs, downloads, and source",
-    tableOfContents: false,
   }}
+  headings={headings}
 >
   <ModEntry mod={officialItem} />
 </StarlightPage>
