@@ -34,8 +34,9 @@ const renderBadgeMarkdown = (markdown: string) => {
       const badges = [
         toBadgeMarkdown("Modrinth downloads", mod.modrinthBadge, mod.modrinthUrl),
         toBadgeMarkdown("CurseForge downloads", mod.curseforgeBadge, mod.curseforgeUrl),
-        toBadgeMarkdown("GitHub downloads", mod.githubDownloadsBadge, mod.sourceUrl),
-        toBadgeMarkdown("GitHub stars", mod.githubStarsBadge, mod.sourceUrl),
+        toBadgeMarkdown("GitHub downloads", mod.githubDownloadsBadge, mod.githubUrl),
+        toBadgeMarkdown("GitHub stars", mod.githubStarsBadge, mod.githubUrl),
+        toBadgeMarkdown("Gitea stars", mod.giteaStarsBadge, mod.sourceUrl),
       ].filter((value): value is string => Boolean(value))
 
       return badges.length ? (
@@ -84,9 +85,16 @@ const renderBadgeMarkdown = (markdown: string) => {
       )
     }
     {
+      mod.githubUrl && (
+        <li>
+          <a href={mod.githubUrl}>Github</a>
+        </li>
+      )
+    }
+    {
       mod.sourceUrl && (
         <li>
-          <a href={mod.sourceUrl}>Github</a>
+          <a href={mod.sourceUrl}>Gitea</a>
         </li>
       )
     }

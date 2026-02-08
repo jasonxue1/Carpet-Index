@@ -91,22 +91,6 @@ export default defineConfig([
           ],
         },
         {
-          pathPattern: "^\\[[^\\]]+\\]\\.curseforge$",
-          order: ["slug", "id", { keyPattern: ".*", order: { caseSensitive: false, type: "asc" } }],
-        },
-        {
-          pathPattern: "^\\[[^\\]]+\\]$",
-          order: [
-            "rules",
-            "website",
-            "modrinth",
-            "curseforge",
-            "mcmod",
-            "github",
-            { keyPattern: ".*", order: { caseSensitive: false, type: "asc" } },
-          ],
-        },
-        {
           order: { caseSensitive: false, type: "asc" },
           pathPattern: "^$",
         },

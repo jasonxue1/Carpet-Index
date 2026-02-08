@@ -2,11 +2,29 @@ import type { ModInput } from "../utils/mods"
 // blob/HEAD/src/main/resources/fabric.mod.json
 const extensions = [
   {
+    name: "AmaCarpet",
+    rules: "https://github.com/amateras-server/ama-carpet#rules",
+    modrinth: "O0njZQzO",
+    github: "amateras-server/ama-carpet",
+  },
+  {
+    name: "BlueIceCarpetExtension",
+    modrinth: "Y4jYDQjO",
+    github: "SALTWOOD/BrineCarpetAddition",
+  },
+  {
     name: "Carpet Addons Not Founded",
     rules: "https://github.com/Gilly7CE/Carpet-Addons-Not-Found/wiki/Available-Rules",
     website: "https://github.com/Gilly7CE/Carpet-Addons-Not-Found/wiki",
     modrinth: "iIPoKpIW",
     github: "Gilly7CE/Carpet-Addons-Not-Found",
+  },
+  {
+    name: "Carpet Aji Addition",
+    rules: "https://github.com/aji110905/Carpet-Aji-Addition/wiki/规则",
+    website: "https://github.com/aji110905/Carpet-Aji-Addition/wiki",
+    modrinth: "yhR7byWp",
+    github: "aji110905/Carpet-Aji-Addition",
   },
   {
     name: "Carpet AMS Addition",
@@ -19,6 +37,26 @@ const extensions = [
     },
     mcmod: "8937",
     github: "Minecraft-AMS/Carpet-AMS-Addition",
+  },
+  {
+    name: "Carpet Ayaka Addition",
+    rules: "https://github.com/AyakaCraft/Carpet-Ayaka-Addition#rules",
+    modrinth: "hGOHBiok",
+    curseforge: {
+      slug: "carpet-ayaka-addition",
+      id: "1220026",
+    },
+    github: "AyakaCraft/Carpet-Ayaka-Addition",
+  },
+  {
+    name: "Carpet Bot Relog",
+    modrinth: "J4KVAnML",
+    github: "Mat0u5/CarpetBotRelog",
+  },
+  {
+    name: "Carpet Bot Restriction",
+    modrinth: "3C2Lvprs",
+    github: "DarkCows/carpet-bot-restriction",
   },
   {
     name: "Carpet Discarpet",
@@ -40,7 +78,19 @@ const extensions = [
     name: "Carpet Extra Extras",
     rules: "https://github.com/Thedustbustr/Carpet-Extra-Extras#carpet-extra-extras-rules",
     modrinth: "2O3YTVOd",
-    github: "Carpet-Extra-Extras",
+    github: "Thedustbustr/Carpet-Extra-Extras",
+  },
+  {
+    name: "Carpet Gamerules",
+    rules: "https://github.com/RubixDev/CarpetGamerules#index",
+    modrinth: "BZjbriEM",
+    github: "RubixDev/CarpetGamerules",
+  },
+  {
+    name: "Carpet GUGU Addition",
+    rules: "https://github.com/DaCong114514qwq/Carpet-GUGU-Addition/blob/HEAD/Rules.md",
+    mcmod: "24339",
+    github: "DaCong114514qwq/Carpet-GUGU-Addition",
   },
   {
     name: "Carpet Igny Addition",
@@ -48,6 +98,21 @@ const extensions = [
     modrinth: "7PCm6yD1",
     mcmod: "23368",
     github: "liuyuexiaoyu1/Carpet-Igny-Addition",
+  },
+  {
+    name: "Carpet Ilmater Addition",
+    rules: "https://codeberg.org/rvbsm/ilmater#features",
+    modrinth: "mlwn7byZ",
+    gitea: {
+      url: "https://codeberg.org",
+      user: "rvbsm",
+      repo: "ilmater",
+    },
+  },
+  {
+    name: "Carpet LAB Addition",
+    modrinth: "1vX1kECa",
+    github: "LabcraftSMP/Carpet-LAB-Addition",
   },
   {
     name: "Carpet LMS Addition",
@@ -65,7 +130,15 @@ const extensions = [
     name: "Carpet MCT Addition",
     rules: "https://github.com/MCTown/Carpet-MCT-Addition#rules",
     modrinth: "pY40IXqI",
+    mcmod: "7401",
     github: "MCTown/Carpet-MCT-Addition",
+  },
+  {
+    name: "Carpet Nukos Addition",
+    rules: "https://github.com/suk-ws/carpet-nukos-addition/blob/HEAD/docs/rules.zh.md",
+    website: "https://github.com/suk-ws/carpet-nukos-addition/blob/HEAD/docs/index.md",
+    modrinth: "55gfLjdF",
+    github: "suk-ws/carpet-nukos-addition",
   },
   {
     name: "Carpet Org Addition",
@@ -75,13 +148,49 @@ const extensions = [
     github: "fcsailboat/Carpet-Org-Addition",
   },
   {
+    name: "Carpet Permissions",
+    modrinth: "fwaRTdM1",
+    mcmod: "17017",
+    gitea: {
+      url: "https://git.arson.gg",
+      user: "lilith",
+      repo: "carpet-permissions",
+    },
+  },
+  {
+    name: "Carpet RMS Addition",
+    rules: "https://github.com/RMS-Server/CarpetRMSAddition#rules",
+    modrinth: "ij9knTzG",
+    mcmod: "20982",
+    github: "RMS-Server/CarpetRMSAddition",
+  },
+  {
     name: "Carpet ROF Addition",
     github: "Melationin/ROF-Carpet-Addition",
+  },
+  {
+    name: "Carpet Roxy Addition",
+    rules: "https://github.com/123456789-code/CarpetRoxyAddition#%EF%B8%8F-功能列表",
+    modrinth: "oiqzGPuI",
+    github: "123456789-code/CarpetRoxyAddition",
+  },
+  {
+    name: "Carpet Shadow Legacy",
+    rules: "https://github.com/Ksandr707-yt/Carpet-Shadow-Legacy#settingsпараметры",
+    modrinth: "NXb1DVkZ",
+    github: "Ksandr707-yt/Carpet-Shadow-Legacy",
   },
   {
     name: "Carpet Sky Additions Revised",
     modrinth: "Hi4jcyg4",
     github: "TreeOfSelf/CarpetSkyAdditions-Reborn",
+  },
+  {
+    name: "Carpet SLS Addition",
+    rules: "https://github.com/zly2006/CarpetSLSAddition/blob/HEAD/rules.md",
+    modrinth: "6RTWtDUb",
+    mcmod: "19815",
+    github: "zly2006/CarpetSLSAddition",
   },
   {
     name: "Carpet Takeneko Addition",
@@ -91,6 +200,7 @@ const extensions = [
       slug: "carpet-takeneko-addition",
       id: "1171753",
     },
+    mcmod: "18023",
     github: "ZhuRuoLing/takeneko-carpet-addition",
   },
   {
@@ -104,6 +214,154 @@ const extensions = [
     },
     mcmod: "5664",
     github: "TISUnion/Carpet-TIS-Addition",
+  },
+  {
+    name: "Carpet YBS Extension",
+    rules: "https://github.com/YBS-Server/Carpet-YBS-Addition/#规则特性",
+    modrinth: "xKjgfXx5",
+    github: "YBS-Server/Carpet-YBS-Addition",
+  },
+  {
+    name: "carpet_edtp_addition",
+    rules: "https://github.com/water2004/carpet_edtp_addition#规则列表",
+    modrinth: "slX6HdVH",
+    github: "water2004/carpet_edtp_addition",
+  },
+  {
+    name: "carpet-survival-bots",
+    modrinth: "gMWCknJ7",
+    curseforge: {
+      slug: "carpet-survival-bots",
+      id: "1313396",
+    },
+    github: "maartin0/carpet-survival-bots",
+  },
+  {
+    name: "CarpetBlueAddition",
+    rules: "https://github.com/blue0666/CarpetBlueAddition/blob/HEAD/docs/Rules.md",
+    modrinth: "eYUMBZlI",
+    mcmod: "19629",
+    github: "blue0666/CarpetBlueAddition",
+  },
+  {
+    name: "Chronos Carpet Addons",
+    rules: "https://github.com/garlic-bred/chronos-carpet-addons/#rules",
+    modrinth: "Go1n6B7y",
+    github: "garlic-bred/chronos-carpet-addons",
+  },
+  {
+    name: "Crystal Carpet Addition",
+    rules: "https://crystal0404.github.io/cca-doc/en/docs/Rule",
+    website: "https://crystal0404.github.io/cca-doc/en",
+    modrinth: "G26sLP13",
+    mcmod: "14314",
+    github: "Crystal0404/CrystalCarpetAddition",
+  },
+  {
+    name: "Dumped Carpet Addition",
+    rules: "https://github.com/WinExp/DumpedCarpetAddition#features",
+    modrinth: "DDXAeyKv",
+    github: "WinExp/DumpedCarpetAddition",
+  },
+  {
+    name: "Essential Addons",
+    rules: "https://github.com/Super-Santa/EssentialAddons#essentialaddons-settings",
+    modrinth: "3WQaouc1",
+    mcmod: "4975",
+    github: "Super-Santa/EssentialAddons",
+  },
+  {
+    name: "Fake AFK",
+    modrinth: "wW2N9HyO",
+    github: "Nettakrim/Fake-AFK",
+  },
+  {
+    name: "GugleCarpetAddition",
+    rules: "https://github.com/Gu-ZT/gugle-carpet-addition#gca",
+    modrinth: "UHjbX5mk",
+    curseforge: {
+      slug: "guglecarpetaddition",
+      id: "662867",
+    },
+    mcmod: "7305",
+    github: "Gu-ZT/gugle-carpet-addition",
+  },
+  {
+    name: "Ivan Carpet Addition",
+    rules: "https://github.com/Ivan-1F/Ivan-Carpet-Addition/blob/HEAD/docs/rules.md",
+    website: "https://github.com/Ivan-1F/Ivan-Carpet-Addition/blob/HEAD/docs",
+    modrinth: "5MInqOGg",
+    mcmod: "6543",
+    github: "Ivan-1F/Ivan-Carpet-Addition",
+  },
+  {
+    name: "JoaCarpet",
+    rules: "https://github.com/JoakimThorsen/JoaCarpet#carpet-mod-settings",
+    modrinth: "CcgAKzTg",
+    github: "JoakimThorsen/JoaCarpet",
+  },
+  {
+    name: "Lanitium",
+    website: "https://github.com/iTutFadU/lanitium/wiki",
+    modrinth: "lEfM0kHn",
+    github: "iTutFadU/lanitium",
+  },
+  {
+    name: "MiniTweaks",
+    rules: "https://github.com/manyrandomthings/minitweaks#minitweaks-carpet-rules-list",
+    modrinth: "gdCHYfN8",
+    curseforge: {
+      slug: "carpet-minitweaks",
+      id: "735546",
+    },
+    mcmod: "11510",
+    github: "manyrandomthings/minitweaks",
+  },
+  {
+    name: "Opt-Carpet-Addition",
+    rules: "https://github.com/OptiJava/OptCarpetAddition#规则",
+    modrinth: "SB7oe4aB",
+    mcmod: "7936",
+    github: "OptiJava/OptCarpetAddition",
+  },
+  {
+    name: "Pixel Carpet",
+    rules: "https://github.com/PixilareMedia/PixelCarpet#pixel-carpet-rules-list",
+    modrinth: "IktBr345",
+    github: "PixilareMedia/PixelCarpet",
+  },
+  {
+    name: "Qualia Carpet Addition",
+    modrinth: "JyI4tI00",
+    mcmod: "17463",
+    github: "QiuShui1012/Qualia-Carpet-Addition",
+  },
+  {
+    name: "RMES-Carpet-additions",
+    rules: "https://www.hureherd.top/remscarpet.github.io/docs/Rule",
+    website: "https://www.hureherd.top/remscarpet.github.io",
+    modrinth: "175yf82Z",
+    mcmod: "20288",
+    github: "Hure-herd/REMS-Carpet-Addition",
+  },
+  {
+    name: "Rug",
+    rules: "https://github.com/RubixDev/Rug#index",
+    modrinth: "VishnYFF",
+    github: "RubixDev/Rug",
+  },
+  {
+    name: "SubTick",
+    rules: "https://github.com/lntricate1/SubTick#carpet-rules",
+    modrinth: "xzx66KYY",
+    mcmod: "14717",
+    github: "lntricate1/SubTick",
+  },
+  {
+    name: "YetAnotherCarpetAddition",
+    modrinth: "Iib8xwCx",
+    mcmod: "19630",
+    github: "hotpad100c/yetanothercarpetaddition",
   },
 ] satisfies ModInput[]
 

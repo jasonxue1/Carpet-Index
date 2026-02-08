@@ -1,4 +1,5 @@
 export type LinkValue = string | { slug?: string; id?: string } | null | undefined
+export type GiteaValue = { url: string; user: string; repo: string } | null | undefined
 
 export type ModInput = {
   name: string
@@ -9,6 +10,7 @@ export type ModInput = {
   curseforge?: LinkValue
   mcmod?: LinkValue
   github?: string
+  gitea?: GiteaValue
 }
 
 export type ModViewModel = {
@@ -20,11 +22,13 @@ export type ModViewModel = {
   modrinthUrl: string | null
   curseforgeUrl: string | null
   mcmodUrl: string | null
+  githubUrl: string | null
   sourceUrl: string | null
   modrinthBadge: string | null
   curseforgeBadge: string | null
   githubDownloadsBadge: string | null
   githubStarsBadge: string | null
+  giteaStarsBadge: string | null
 }
 
 type NormalizedLink = {
@@ -41,6 +45,9 @@ export type LinksConfig = {
     website: (value: string) => string
     downloads: (value: string) => string
     stars: (value: string) => string
+  }
+  gitea: {
+    stars: (baseUrl: string, user: string, repo: string) => string
   }
 }
 
@@ -61,6 +68,8 @@ export const slugify = (value: string) =>
 
 export const toModViewModel = (mod: ModInput, links: LinksConfig): ModViewModel => {
   const githubValue = mod.github
+  const giteaValue = mod.gitea
+  const giteaBaseUrl = giteaValue?.url.replace(/\/+$/, "")
   const docsUrl = mod.docs ?? mod.rules
   const docsLabel = mod.docs ? "Docs" : mod.rules ? "Rules" : undefined
   const modrinth = normalizeLink(mod.modrinth)
@@ -76,11 +85,16 @@ export const toModViewModel = (mod: ModInput, links: LinksConfig): ModViewModel 
     modrinthUrl: modrinth?.value ? links.modrinth.website(modrinth.value) : null,
     curseforgeUrl: curseforge?.slug ? links.curseforge.website(curseforge.slug) : null,
     mcmodUrl: mcmod?.value ? links.mcmod(mcmod.value) : null,
-    sourceUrl: githubValue ? links.github.website(githubValue) : null,
+    githubUrl: githubValue ? links.github.website(githubValue) : null,
+    sourceUrl: giteaValue ? `${giteaBaseUrl}/${giteaValue.user}/${giteaValue.repo}` : null,
     modrinthBadge: modrinth?.value ? links.modrinth.downloads(modrinth.value) : null,
     curseforgeBadge: curseforge?.id ? links.curseforge.downloads(curseforge.id) : null,
     githubDownloadsBadge: githubValue ? links.github.downloads(githubValue) : null,
     githubStarsBadge: githubValue ? links.github.stars(githubValue) : null,
+    giteaStarsBadge:
+      giteaValue && giteaBaseUrl
+        ? links.gitea.stars(giteaBaseUrl, giteaValue.user, giteaValue.repo)
+        : null,
   }
 }
 

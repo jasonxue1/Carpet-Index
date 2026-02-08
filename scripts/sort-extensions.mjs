@@ -7,8 +7,18 @@ const cliArgs = process.argv.slice(2)
 const checkOnly = cliArgs.includes("--check")
 const targetFiles = ["src/assets/extensions.ts", "src/assets/official.ts"]
 
-const ENTRY_ORDER = ["name", "rules", "website", "modrinth", "curseforge", "mcmod", "github"]
+const ENTRY_ORDER = [
+  "name",
+  "rules",
+  "website",
+  "modrinth",
+  "curseforge",
+  "mcmod",
+  "github",
+  "gitea",
+]
 const CURSEFORGE_ORDER = ["slug", "id"]
+const GITEA_ORDER = ["url", "user", "repo"]
 
 const ciCompare = (a, b) =>
   a.localeCompare(b, "en", {
@@ -74,6 +84,8 @@ const sortAny = (value, keyPath = []) => {
 
   if (keyPath.at(-1) === "curseforge") {
     orderedKeys = orderKeys(keys, CURSEFORGE_ORDER)
+  } else if (keyPath.at(-1) === "gitea") {
+    orderedKeys = orderKeys(keys, GITEA_ORDER)
   } else if (keys.includes("name")) {
     orderedKeys = orderKeys(keys, ENTRY_ORDER)
   } else {
