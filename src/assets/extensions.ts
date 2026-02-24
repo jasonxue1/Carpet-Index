@@ -10,7 +10,7 @@ const extensions = [
   {
     name: "BlueIceCarpetExtension",
     modrinth: "Y4jYDQjO",
-    github: "SALTWOOD/BrineCarpetAddition",
+    github: "SALTWOOD/BlueIceCarpetExtension",
   },
   {
     name: "Carpet Addons Not Founded",
@@ -166,6 +166,7 @@ const extensions = [
   },
   {
     name: "Carpet ROF Addition",
+    rules: "https://github.com/Melationin/ROF-Carpet-Addition/blob/HEAD/docs/rules.md",
     github: "Melationin/ROF-Carpet-Addition",
   },
   {
@@ -220,6 +221,10 @@ const extensions = [
     rules: "https://github.com/YBS-Server/Carpet-YBS-Addition/#规则特性",
     modrinth: "xKjgfXx5",
     github: "YBS-Server/Carpet-YBS-Addition",
+  },
+  {
+    name: "Carpet_CuO_Addition",
+    modrinth: "fgruPimf",
   },
   {
     name: "carpet_edtp_addition",
