@@ -224,7 +224,9 @@ const extensions = [
   },
   {
     name: "Carpet_CuO_Addition",
+    rules: "https://github.com/XM-OwO/Carpet_CuO_Addition#rules",
     modrinth: "fgruPimf",
+    github: "XM-OwO/Carpet_CuO_Addition",
   },
   {
     name: "carpet_edtp_addition",
