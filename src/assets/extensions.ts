@@ -96,6 +96,10 @@ const extensions = [
     name: "Carpet Igny Addition",
     rules: "https://github.com/liuyuexiaoyu1/Carpet-Igny-Addition/blob/HEAD/docs/rules.md",
     modrinth: "7PCm6yD1",
+    curseforge: {
+      slug: "carpet-igny-addition",
+      id: "1479191",
+    },
     mcmod: "23368",
     github: "liuyuexiaoyu1/Carpet-Igny-Addition",
   },
