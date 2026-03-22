@@ -348,7 +348,7 @@ const extensions = [
     github: "QiuShui1012/Qualia-Carpet-Addition",
   },
   {
-    name: "RMES-Carpet-additions",
+    name: "REMS-Carpet-Addition",
     rules: "https://www.hureherd.top/remscarpet.github.io/docs/Rule",
     website: "https://www.hureherd.top/remscarpet.github.io",
     modrinth: "175yf82Z",
