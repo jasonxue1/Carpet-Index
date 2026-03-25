@@ -3,7 +3,8 @@
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/starlight": "^0.37.6",
     "astro": "^5.6.1",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "svgo": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -29,10 +30,11 @@
     "lint:apply": "eslint . --fix",
     "prettier:apply": "prettier . --write",
     "sort:apply": "node scripts/sort-extensions.mjs",
+    "svgo:apply": "svgo -r public",
     "lint:check": "eslint . --max-warnings 0",
     "prettier:check": "prettier . --check",
     "sort:check": "node scripts/sort-extensions.mjs --check",
-    "apply": "pnpm sort:apply && pnpm prettier:apply && pnpm lint:apply",
+    "apply": "pnpm sort:apply && pnpm prettier:apply && pnpm lint:apply && pnpm svgo:apply",
     "check": "pnpm sort:check && pnpm prettier:check && pnpm lint:check"
   },
   "type": "module",
