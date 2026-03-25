@@ -8,6 +8,12 @@ const extensions = [
     github: "amateras-server/ama-carpet",
   },
   {
+    name: "Antideath-Carpet-Addition",
+    rules: "https://github.com/jfglzs/Antideath-Carpet-addition#aca的所有规则",
+    mcmod: "24842",
+    github: "jfglzs/Antideath-Carpet-addition",
+  },
+  {
     name: "BlueIceCarpetExtension",
     modrinth: "Y4jYDQjO",
     github: "SALTWOOD/BlueIceCarpetExtension",
@@ -255,6 +261,12 @@ const extensions = [
     github: "blue0666/CarpetBlueAddition",
   },
   {
+    name: "CarpetSDKAddition",
+    modrinth: "Sub5yYXA",
+    mcmod: "24574",
+    github: "ren-zaifei/Carpet-SDK-Addition",
+  },
+  {
     name: "Chronos Carpet Addons",
     rules: "https://github.com/garlic-bred/chronos-carpet-addons/#rules",
     modrinth: "Go1n6B7y",
@@ -346,6 +358,16 @@ const extensions = [
     modrinth: "JyI4tI00",
     mcmod: "17463",
     github: "QiuShui1012/Qualia-Carpet-Addition",
+  },
+  {
+    name: "Reden",
+    modrinth: "xRu8OXEJ",
+    curseforge: {
+      slug: "reden",
+      id: "903236",
+    },
+    mcmod: "12326",
+    github: "zly2006/reden-is-what-we-made",
   },
   {
     name: "REMS-Carpet-Addition",
