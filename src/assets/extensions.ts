@@ -245,6 +245,10 @@ const extensions = [
     github: "water2004/carpet_edtp_addition",
   },
   {
+    name: "carpet-sgu-addition",
+    github: "Bdbmzwsc/carpet-sgu-addition",
+  },
+  {
     name: "carpet-survival-bots",
     modrinth: "gMWCknJ7",
     curseforge: {
