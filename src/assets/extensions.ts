@@ -401,6 +401,11 @@ const extensions = [
     github: "lntricate1/SubTick",
   },
   {
+    name: "SubTick[liuyuexiaoyu1]",
+    rules: "https://github.com/liuyuexiaoyu1/SubTick#carpet-rules",
+    github: "liuyuexiaoyu1/SubTick",
+  },
+  {
     name: "YetAnotherCarpetAddition",
     modrinth: "Iib8xwCx",
     mcmod: "19630",
