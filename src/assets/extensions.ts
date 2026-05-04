@@ -265,6 +265,12 @@ const extensions = [
     github: "blue0666/CarpetBlueAddition",
   },
   {
+    name: "CarpetGUI",
+    modrinth: "ieIj9FLp",
+    mcmod: "26238",
+    github: "hotpad100c/carpetgui",
+  },
+  {
     name: "CarpetSDKAddition",
     modrinth: "Sub5yYXA",
     mcmod: "24574",
