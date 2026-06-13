@@ -10,6 +10,7 @@ const extensions = [
   {
     name: "Antideath-Carpet-Addition",
     rules: "https://github.com/jfglzs/Antideath-Carpet-addition#aca的所有规则",
+    modrinth: "tBXZO2TH",
     mcmod: "24842",
     github: "jfglzs/Antideath-Carpet-addition",
   },
